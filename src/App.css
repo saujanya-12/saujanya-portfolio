@@ -1718,3 +1718,85 @@ button {
     gap: 12px;
   }
 }
+
+/* =================================
+   HERO PROFILE PHOTO
+================================= */
+
+.hero-photo-card {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-photo-card::before {
+  display: none;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 1;
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.hero-photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(5, 5, 5, 0.25) 65%,
+    rgba(5, 5, 5, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-photo-info {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 30px;
+  z-index: 3;
+}
+
+.hero-photo-info span {
+  color: #b9aaff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.hero-photo-info p {
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero-photo-card:hover .hero-photo {
+  transform: scale(1.06);
+  filter: contrast(1.05);
+}
+
+@media (max-width: 520px) {
+  .hero-photo-info {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .hero-photo-info p {
+    font-size: 17px;
+  }
+}

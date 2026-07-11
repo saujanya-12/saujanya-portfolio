@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FiArrowDownRight } from "react-icons/fi";
+import saujanyaPhoto from "../assets/saujanya-photo.jpeg";
 
 function Hero() {
   return (
@@ -82,16 +83,28 @@ function Hero() {
       >
         <div className="glow"></div>
 
-        <div className="hero-card">
-          <span>01</span>
-          <h2>
-            CODE.
-            <br />
-            CREATE.
-            <br />
-            GROW.
-          </h2>
-        </div>
+        <motion.div
+          className="hero-card hero-photo-card"
+          animate={{ y: [0, -15, 0] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <img
+            src={saujanyaPhoto}
+            alt="Saujanya Shedbal"
+            className="hero-photo"
+          />
+
+          <div className="hero-photo-overlay"></div>
+
+          <div className="hero-photo-info">
+            <span>SOFTWARE ENGINEER</span>
+            <p>SAUJANYA SHEDBAL</p>
+          </div>
+        </motion.div>
       </motion.div>
 
       <div className="scroll-text">
